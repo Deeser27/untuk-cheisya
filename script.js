@@ -107,7 +107,7 @@ function checkAnswer(element) {
     
     if (element.dataset.answer === 'correct') {
         element.classList.add('correct');
-        feedback.innerHTML = '🎉 Tepat sekali! Kamu tahu kan betapa pentingnya kamu buat aku 😊';
+        feedback.innerHTML = '🎉 Tepat sekaliiiii WKWKWKWKWKW';
         feedback.className = 'feedback success';
         nextBtn.classList.remove('hidden');
     } else {
@@ -207,3 +207,4 @@ function sendWA() {
     // Buka WhatsApp
     window.open(whatsappUrl, '_blank');
 }
+
