@@ -2,14 +2,19 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Special for Cheisya 🐡</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="theme-color" content="#ff9a9e">
 </head>
 <body>
 
+    <!-- Background Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Music Player -->
     <audio id="bgMusic" loop>
         <source src="ninu.mp3" type="audio/mpeg">
     </audio>
@@ -20,66 +25,112 @@
 
     <div class="container">
         
+        <!-- Section 1: Pembukaan -->
         <div id="section1" class="section active">
             <div class="glass-card">
-                <div class="profile-icon">🐡</div>
-                <h1>Hai, Cheisya!</h1>
-                <p>Aku bikin sesuatu buat kamu.</p>
-                <p class="small-text">Disarankan nyalain volume ya 🔊</p>
-                <button class="btn-primary" onclick="startJourney()">Buka Sekarang 🚀</button>
+                <div class="floating-hearts">
+                    <span>💕</span><span>💖</span><span>💗</span>
+                </div>
+                <div class="profile-icon bounce">🐡</div>
+                <h1 class="greeting">Hai, Cheisya! 👋</h1>
+                <p class="subtitle">Ada sesuatu yang aku buat khusus buat kamu...</p>
+                <div class="hint">
+                    <i class="fas fa-volume-up"></i> Nyalain volume ya! 🔊
+                </div>
+                <button class="btn-primary glow" onclick="startJourney()">
+                    <span>Buka Sekarang</span> <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
         </div>
 
+        <!-- Section 2: Cerita -->
         <div id="section2" class="section">
             <div class="glass-card">
-                <img src="https://media.giphy.com/media/UyICsK5vX758A/giphy.gif" alt="Cute Cat" class="sticker">
-                <p id="typingText"></p> <button id="nextBtn2" class="btn-primary hidden" onclick="nextSection(3)">Lanjut 👉</button>
+                <div class="sticker-container">
+                    <img src="https://media.giphy.com/media/UyICsK5vX758A/giphy.gif" alt="Cute Cat" class="sticker bounce-slow">
+                </div>
+                <div class="typing-container">
+                    <p id="typingText"></p>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" id="typingProgress"></div>
+                </div>
+                <button id="nextBtn2" class="btn-primary hidden" onclick="nextSection(3)">
+                    Lanjut <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
         </div>
 
+        <!-- Section 3: Kuis -->
         <div id="section3" class="section">
             <div class="glass-card">
-                <h2>Ujian Dadakan 📝</h2>
-                <p>Aku ada ujian dadakan nih, coba kamu tebak tujuan ku buat ini web apa</p>
-                <p>Anak IPS paling pinter di SMAN3 Sih harusnya ga salah ya</p>
+                <h2 class="section-title">📝 Ujian Dadakan</h2>
+                <p class="question">Aku bikin website ini buat apa ya?</p>
                 
                 <div class="quiz-options">
-                    <div class="option" onclick="wrongAnswer(this)">Buat pamer</div>
-                    <div class="option correct" onclick="rightAnswer(this)">Buat ngomong sesuatu ke kamuu✨</div>
-                    <div class="option" onclick="wrongAnswer(this)">Buat ngasi liat project gabutku</div>
+                    <div class="option" data-answer="wrong" onclick="checkAnswer(this)">
+                        <i class="fas fa-star"></i> Buat pamer project
+                    </div>
+                    <div class="option" data-answer="correct" onclick="checkAnswer(this)">
+                        <i class="fas fa-heart"></i> Buat ngomong sesuatu ke kamu ✨
+                    </div>
+                    <div class="option" data-answer="wrong" onclick="checkAnswer(this)">
+                        <i class="fas fa-gamepad"></i> Buat ngasi liat gabutku
+                    </div>
                 </div>
                 
-                <p id="quizFeedback" class="feedback"></p>
-                <button id="nextBtn3" class="btn-primary hidden" onclick="nextSection(4)">Nah Bener! Lanjut ❤️</button>
+                <div id="quizFeedback" class="feedback"></div>
+                <button id="nextBtn3" class="btn-primary hidden" onclick="nextSection(4)">
+                    Bener! Lanjut ❤️
+                </button>
             </div>
         </div>
 
+        <!-- Section 4: Pertanyaan Utama -->
         <div id="section4" class="section">
             <div class="glass-card">
+                <div class="hearts-animation">
+                    <span>❤️</span><span>💕</span><span>💖</span>
+                </div>
                 <h1 class="romantic-text">Cheisya Aqila...</h1>
-                <p>Aku awalnya ga espek kita bisa jadi sedekat ini...</p>
-                <p>Senernya aku malukkk bgt dan bahkan ga espek bakal ngomong gini ke orang WKKWWKWK tapiiii kayanya harus deh setelah ku analisis tadi. <br><b>Km mau ga jadi pacar ku?</b> 🐡❤️</p>
+                <p class="story-text">
+                    Awalnya aku ga espek kita bisa sedekat ini...<br>
+                    Malukkk bgt dan bahkan ga espek bakal ngomong gini, tapi kayanya harus deh setelah ku analisis 🧐<br><br>
+                    <strong class="question-big">Kamu mau ga jadi pacarku?</strong> 🐡❤️
+                </p>
                 
-                <div class="action-buttons">
-                    <button id="btnYes" onclick="accepted()">MAU DONG! 😍</button>
-                    <button id="btnNo" onmouseover="moveButton()" ontouchstart="moveButton()">Gak Dulu 😜</button>
+                <div class="response-buttons">
+                    <button id="btnYes" class="btn-yes" onclick="accepted()">
+                        <i class="fas fa-heart"></i> MAU DONG!
+                    </button>
+                    <button id="btnNo" class="btn-no" onmouseover="moveButton()" ontouchstart="moveButton()">
+                        <i class="fas fa-times"></i> Gak Dulu
+                    </button>
                 </div>
             </div>
         </div>
 
+        <!-- Section 5: Sukses -->
         <div id="section5" class="section">
-            <div class="glass-card">
-                <h1>YEAYYYYYYYYYYYY! 🥳</h1>
-                <img src="https://media.giphy.com/media/TdfyKrN7HGTIY/giphy.gif" alt="Happy Dance" class="sticker">
-                <p>Makasih ya udah kasih aku kesempatan.</p>
-                <p><i>YEY JADI UDAH RESMI WKWKWKWK 🐡</i></p>
-                <button class="btn-whatsapp" onclick="sendWA()">Kabarin Aku Sekarang 💌</button>
+            <div class="glass-card celebration">
+                <div class="celebration-emoji">🥳</div>
+                <h1 class="celebration-title">YEEEEAAAAAAY!!! 🎉</h1>
+                <img src="https://media.giphy.com/media/TdfyKrN7HGTIY/giphy.gif" alt="Happy Dance" class="sticker celebration-sticker">
+                <p class="celebration-text">
+                    Makasih ya udah kasih aku kesempatan! 🙏<br>
+                    <i>YEY JADI UDAH RESMI WKWKWKWK 🐡💑</i>
+                </p>
+                <button class="btn-whatsapp" onclick="sendWA()">
+                    <i class="fab fa-whatsapp"></i> Kabarin Aku Sekarang 💌
+                </button>
             </div>
         </div>
 
     </div>
 
+    <!-- Confetti Container -->
+    <div class="confetti-container" id="confettiContainer"></div>
+
     <script src="script.js"></script>
 </body>
-
 </html>
