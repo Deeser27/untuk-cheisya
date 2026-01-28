@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special for Cheisya 🐡</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="ninu.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-control" onclick="toggleMusic()">
+        <i class="fas fa-music" id="musicIcon"></i>
+    </div>
+
+    <div class="container">
+        
+        <div id="section1" class="section active">
+            <div class="glass-card">
+                <div class="profile-icon">🐡</div>
+                <h1>Hai, Cheisya!</h1>
+                <p>Aku bikin sesuatu buat kamu.</p>
+                <p class="small-text">Disarankan nyalain volume ya 🔊</p>
+                <button class="btn-primary" onclick="startJourney()">Buka Sekarang 🚀</button>
+            </div>
+        </div>
+
+        <div id="section2" class="section">
+            <div class="glass-card">
+                <img src="https://media.giphy.com/media/UyICsK5vX758A/giphy.gif" alt="Cute Cat" class="sticker">
+                <p id="typingText"></p> <button id="nextBtn2" class="btn-primary hidden" onclick="nextSection(3)">Lanjut 👉</button>
+            </div>
+        </div>
+
+        <div id="section3" class="section">
+            <div class="glass-card">
+                <h2>Ujian Dadakan 📝</h2>
+                <p>Aku ada ujian dadakan nih, coba kamu tebak tujuan ku buat ini web apa</p>
+                <p>Anak IPS paling pinter di SMAN3 Sih harusnya ga salah ya</p>
+                
+                <div class="quiz-options">
+                    <div class="option" onclick="wrongAnswer(this)">Buat pamer</div>
+                    <div class="option correct" onclick="rightAnswer(this)">Buat ngomong sesuatu ke kamuu✨</div>
+                    <div class="option" onclick="wrongAnswer(this)">Buat ngasi liat project gabutku</div>
+                </div>
+                
+                <p id="quizFeedback" class="feedback"></p>
+                <button id="nextBtn3" class="btn-primary hidden" onclick="nextSection(4)">Nah Bener! Lanjut ❤️</button>
+            </div>
+        </div>
+
+        <div id="section4" class="section">
+            <div class="glass-card">
+                <h1 class="romantic-text">Cheisya Aqila...</h1>
+                <p>Aku awalnya ga espek kita bisa jadi sedekat ini...</p>
+                <p>Senernya aku malukkk bgt dan bahkan ga espek bakal ngomong gini ke orang WKKWWKWK tapiiii kayanya harus deh setelah ku analisis tadi. <br><b>Km mau ga pacaran ma aku KWWKKWKW?</b> 🐡❤️</p>
+                
+                <div class="action-buttons">
+                    <button id="btnYes" onclick="accepted()">MAU DONG! 😍</button>
+                    <button id="btnNo" onmouseover="moveButton()" ontouchstart="moveButton()">Gak Dulu 😜</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="section5" class="section">
+            <div class="glass-card">
+                <h1>YEAYYYYYYYYYYYY! 🥳</h1>
+                <img src="https://media.giphy.com/media/TdfyKrN7HGTIY/giphy.gif" alt="Happy Dance" class="sticker">
+                <p>Makasih ya udah kasih aku kesempatan.</p>
+                <p><i>The Pufferfish is mine now! WKWKWKWK 🐡</i></p>
+                <button class="btn-whatsapp" onclick="sendWA()">Kabarin Aku Sekarang 💌</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
