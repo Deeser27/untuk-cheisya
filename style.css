@@ -198,15 +198,14 @@ p {
     100% { transform: translateX(0); }
 }
 
-/* Action Buttons (Yes/No) */
+/* Action Buttons (Yes/No) - UBAHAN DI SINI */
 .action-buttons {
     display: flex;
-    gap: 15px;
+    justify-content: center;
     margin-top: 20px;
     position: relative;
     width: 100%;
-    justify-content: center;
-    height: 60px; /* Space for buttons */
+    height: 130px;
 }
 
 #btnNo {
@@ -217,7 +216,28 @@ p {
     border-radius: 50px;
     font-weight: bold;
     cursor: pointer;
-    position: absolute; /* Penting untuk animasi lari */
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+#btnYes {
+    background: linear-gradient(to right, #ff7675, #d63031);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(255, 118, 117, 0.4);
+    margin-top: 65px;
+}
+
+#btnYes:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 118, 117, 0.6);
 }
 
 /* Music Control */
